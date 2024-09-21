@@ -1,0 +1,31 @@
+### 
+//resigter
+POST http://localhost:5000/api/users/register 
+Content-Type: application/json
+
+
+{
+	"name":"crazy1",
+	"email":"crazy1@gmail.com",
+	"password":"Crazy@1207"
+}
+	 
+### 
+//login
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+
+{
+	"email":"crazy1@gmail.com",
+	"password":"Crazy@1207"
+}
+
+### 
+//find user
+GET http://localhost:5000/api/users/find/66eea9e1bf0d5f5018e03772
+
+
+### 
+//find user
+GET http://localhost:5000/api/users
