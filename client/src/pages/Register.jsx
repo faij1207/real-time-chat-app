@@ -4,21 +4,26 @@ import { Alert, Form, Button, Row, Col, Stack } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Register() {
-  const { registerInfo, updateRegisterInfo } = useContext(AuthContext);
+  const {
+    registerInfo,
+    updateRegisterInfo,
+    registerUser,
+    registerError,
+    loading,
+  } = useContext(AuthContext);
   return (
     <div>
-      <Form>
+      <Form onSubmit={registerUser}>
         <Row
           style={{
             height: "100vh",
             justifyContent: "center",
-            paddingTop: "10%",
+            paddingTop: "5%",
           }}
         >
           <Col md={4}>
             <Stack gap={3}>
               <h1>Register</h1>
-              <h2>{user.name}</h2>
               <Form.Group>
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -59,12 +64,13 @@ export default function Register() {
                 />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Submit
+                {loading ? "Loading..." : "Register"}
               </Button>
-              <Alert variant="danger">
+              <Alert variant="info">
                 Already have an account?{" "}
                 <Alert.Link href="/login">Login</Alert.Link>
               </Alert>
+              {registerError && <Alert variant="danger">{registerError}</Alert>}
             </Stack>
           </Col>
         </Row>

@@ -10,7 +10,7 @@ export default function Login() {
         style={{
           height: '100vh',
           justifyContent: 'center',
-          paddingTop: '10%',
+          paddingTop: '5%',
         }}>
         <Col md={4}>
           <Stack gap={3}>

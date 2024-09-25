@@ -23,10 +23,7 @@ app.get('/', (req, res) => {
   }); 
 
 
-mongoose.connect(uri,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(()=>{
+mongoose.connect(uri).then(()=>{
     console.log('Database connected');
 }).catch((err)=>{
     console.log(err);
