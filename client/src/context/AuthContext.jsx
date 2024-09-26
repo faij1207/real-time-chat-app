@@ -12,7 +12,11 @@ export const AuthContextProvider = ({ children }) => {
     email: "",
     password: "",
   });
-  console.log("User", user);
+  const [loginError, setLoginError] = useState(null);
+  const [loginInfo, setLoginInfo] = useState({
+    email: "",
+    password: "",
+  });
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("User"));
@@ -23,6 +27,10 @@ export const AuthContextProvider = ({ children }) => {
 
   const updateRegisterInfo = useCallback((info) => {
     setRegisterInfo(info);
+  }, []);
+
+  const updateLoginInfo = useCallback((info) => {
+    setLoginInfo(info);
   }, []);
 
   const registerUser = useCallback(async (e) => {
@@ -50,6 +58,27 @@ export const AuthContextProvider = ({ children }) => {
     setUser(null);
   }, []);
 
+  const loginUser=useCallback(async(e)=>{
+    e.preventDefault ();
+    setLoading(true);
+    setLoginError(null);
+    try {
+      const response = await postRequest(
+        `${baseUrl}/users/login`,
+        JSON.stringify(loginInfo)
+      );
+      if (response.error) {
+        setLoginError(response.message);
+      } else {
+        localStorage.setItem("User", JSON.stringify(response));
+        setUser(response);
+      }
+    } catch (error) {
+      setLoginError(error.message);
+    }
+    setLoading(false);
+  },[loginInfo]);
+
   return (
     <AuthContext.Provider
       value={{
@@ -60,6 +89,10 @@ export const AuthContextProvider = ({ children }) => {
         registerError,
         loading,
         logoutUser,
+        loginInfo,
+        updateLoginInfo,
+        loginUser,
+        loginError,
       }}
     >
       {children}
