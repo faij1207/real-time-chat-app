@@ -45,7 +45,7 @@ export default function Login() {
                 Don't have an account?{" "}
                 <Alert.Link href="/register">Register</Alert.Link>
               </Alert>
-              {loginError && <Alert variant="danger">{loginError}</Alert>}
+              {loginError?.error &&( <Alert variant="danger"><p>{loginError?.message}</p></Alert>)}
             </Stack>
           </Col>
         </Row>
