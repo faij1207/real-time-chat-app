@@ -29,3 +29,25 @@ GET http://localhost:5000/api/users/find/66eea9e1bf0d5f5018e03772
 ### 
 //find user
 GET http://localhost:5000/api/users
+
+###
+//create chat
+POST http://localhost:5000/api/chats
+
+Content-Type: application/json
+
+{
+	"firstId": "66f40f5f01b24575cf789b87",
+	"secondId":"66f4127f3c2e26684db33c18"
+}
+
+###
+//find user chats 
+
+GET http://localhost:5000/api/chats/66f40f5f01b24575cf789b87
+
+###
+//find chat
+
+GET http://localhost:5000/api/chats/find/66f40f5f01b24575cf789b87/66f4127f3c2e26684db33c18
+
