@@ -51,3 +51,19 @@ GET http://localhost:5000/api/chats/66f40f5f01b24575cf789b87
 
 GET http://localhost:5000/api/chats/find/66f40f5f01b24575cf789b87/66f4127f3c2e26684db33c18
 
+
+###
+//send message
+
+POST http://localhost:5000/api/messages
+Content-Type: application/json
+
+{
+	"chatId": "67092f10a8bfedca56473a56",
+	"senderId":"66f40f5f01b24575cf789b87",
+	"text":"hello"
+}
+
+###
+//find messages
+GET http://localhost:5000/api/messages/67092f10a8bfedca56473a56
