@@ -7,7 +7,7 @@ Content-Type: application/json
 {
 	"name":"crazy1",
 	"email":"crazy1@gmail.com",
-	"password":"Crazy@1207"
+	"password":"Crazy1@1207"
 }
 	 
 ### 
@@ -18,12 +18,12 @@ Content-Type: application/json
 
 {
 	"email":"crazy1@gmail.com",
-	"password":"Crazy@1207"
+	"password":"Crazy1@1207"
 }
 
 ### 
 //find user
-GET http://localhost:5000/api/users/find/66eea9e1bf0d5f5018e03772
+GET http://localhost:5000/api/users/find/670aaf460394040fb7b3e49d
 
 
 ### 
@@ -33,37 +33,33 @@ GET http://localhost:5000/api/users
 ###
 //create chat
 POST http://localhost:5000/api/chats
-
 Content-Type: application/json
 
 {
-	"firstId": "66f40f5f01b24575cf789b87",
-	"secondId":"66f4127f3c2e26684db33c18"
+  "firstId": "670aaf460394040fb7b3e49d",
+  "secondId": "670aaf150394040fb7b3e49a"
 }
 
 ###
 //find user chats 
-
-GET http://localhost:5000/api/chats/66f40f5f01b24575cf789b87
+GET http://localhost:5000/api/chats/670aaf150394040fb7b3e49a
 
 ###
 //find chat
-
-GET http://localhost:5000/api/chats/find/66f40f5f01b24575cf789b87/66f4127f3c2e26684db33c18
+GET http://localhost:5000/api/chats/find/670aaf460394040fb7b3e49d/670aaf150394040fb7b3e49a
 
 
 ###
 //send message
-
 POST http://localhost:5000/api/messages
 Content-Type: application/json
 
 {
-	"chatId": "67092f10a8bfedca56473a56",
-	"senderId":"66f40f5f01b24575cf789b87",
-	"text":"hello"
+	"chatId": "670ca372d83d8cfed4e1ee6f",
+	"senderId":"670aaf460394040fb7b3e49d",
+	"text":"hello Crazy"
 }
 
 ###
 //find messages
-GET http://localhost:5000/api/messages/67092f10a8bfedca56473a56
+GET http://localhost:5000/api/messages/670ca372d83d8cfed4e1ee6f
