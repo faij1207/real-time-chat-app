@@ -4,7 +4,7 @@ import profile from "../../assets/profile.svg";
 
 const UserChat = (chat, user) => {
   const { recipientUser, error } = useFetchRecipientUser(chat, user);
-  console.log(recipientUser);
+  console.log(recipientUser?.name);
   return (
     <Stack
       direction="horizontal"
